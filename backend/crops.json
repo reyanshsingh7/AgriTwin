@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Wheat",
+    "cost_per_acre": 15000,
+    "water_requirement": "Medium",
+    "labour_requirement": 50,
+    "expected_yield": 20,
+    "expected_revenue": 45000,
+    "suitability_score": 85,
+    "risk_score": 20,
+    "machinery_requirement": "Medium",
+    "strategy": "Staple Grain Strategy"
+  },
+  {
+    "name": "Rice",
+    "cost_per_acre": 25000,
+    "water_requirement": "High",
+    "labour_requirement": 80,
+    "expected_yield": 25,
+    "expected_revenue": 60000,
+    "suitability_score": 90,
+    "risk_score": 30,
+    "machinery_requirement": "Medium",
+    "strategy": "Water-Intensive Grain Strategy"
+  },
+  {
+    "name": "Maize",
+    "cost_per_acre": 12000,
+    "water_requirement": "Low",
+    "labour_requirement": 40,
+    "expected_yield": 18,
+    "expected_revenue": 35000,
+    "suitability_score": 80,
+    "risk_score": 15,
+    "machinery_requirement": "Low",
+    "strategy": "Low-Input Cereal Strategy"
+  },
+  {
+    "name": "Mustard",
+    "cost_per_acre": 8000,
+    "water_requirement": "Low",
+    "labour_requirement": 30,
+    "expected_yield": 10,
+    "expected_revenue": 28000,
+    "suitability_score": 75,
+    "risk_score": 10,
+    "machinery_requirement": "Low",
+    "strategy": "Low-Cost Oilseed Strategy"
+  },
+  {
+    "name": "Sugarcane",
+    "cost_per_acre": 40000,
+    "water_requirement": "High",
+    "labour_requirement": 100,
+    "expected_yield": 300,
+    "expected_revenue": 100000,
+    "suitability_score": 95,
+    "risk_score": 40,
+    "machinery_requirement": "High",
+    "strategy": "High-Value Cash Crop Strategy"
+  },
+  {
+    "name": "Cotton",
+    "cost_per_acre": 20000,
+    "water_requirement": "Medium",
+    "labour_requirement": 70,
+    "expected_yield": 15,
+    "expected_revenue": 50000,
+    "suitability_score": 78,
+    "risk_score": 50,
+    "machinery_requirement": "Medium",
+    "strategy": "Fibre Cash Crop Strategy"
+  }
+]

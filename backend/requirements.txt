@@ -1,0 +1,4 @@
+# Runtime dependencies only (used by Docker / Render / production)
+fastapi>=0.100
+uvicorn
+pydantic>=2
