@@ -29,13 +29,14 @@ Recommends the crop a farmer can *realistically afford and implement*, not just 
 
 | Name | Role |
 |---|---|
-| **Reyansh** | Team Lead |
-| Anushka | Team Member |
-| Ayush | Team Member |
+| **Reyansh Singh** | Team Lead |
+| Anushka Verma | Team Member |
+| Ayush Raj | Team Member |
 | Prince | Team Member |
-| Arnav | Team Member |
+| Arnav Raj | Team Member |
 | Pushkar | Team Member |
-| Shivansh | Team Member |
+| Shivansh Singh | Team Member |
+| Khushi Sharma | Team Member |
 
 ## 📑 Contents
 [Overview](#-overview) · [Quick start](#-quick-start) · [Project structure](#-project-structure) · [How the engine works](#-how-the-decision-engine-works) · [API](#-api) · [Testing](#-testing) · [Deployment](#-deployment) · [Limitations](#-limitations-and-assumptions)
