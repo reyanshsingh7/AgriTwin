@@ -34,7 +34,7 @@ Recommends the crop a farmer can *realistically afford and implement*, not just 
 | Ayush Raj | Team Member |
 | Prince | Team Member |
 | Arnav Raj | Team Member |
-| Pushkar | Team Member |
+| Pushkar Rana | Team Member |
 | Shivansh Singh | Team Member |
 | Khushi Sharma | Team Member |
 
