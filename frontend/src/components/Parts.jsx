@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react'
-import { CHECK_ICON, CROP_EMOJI, compactInr, inr, riskBand, roiOf } from '../lib.js'
+import { useState } from 'react'
+import { CHECK_ICON, compactInr, inr, riskBand, roiOf } from '../lib.js'
 import { CROP_NAMES_HI } from '../i18n.js'
-import { useCountUp } from './Art.jsx'
+import Icon from './Icon.jsx'
+import { CropThumb } from './Photo.jsx'
 
 export const cropName = (crop, lang) => (lang === 'hi' ? CROP_NAMES_HI[crop] || crop : crop)
 
@@ -9,7 +10,7 @@ export function Segmented({ id, label, icon, value, options, labels, onChange, h
   return (
     <div className="field" role="radiogroup" aria-labelledby={`${id}-label`}>
       <div className="field-label" id={`${id}-label`}>
-        {icon && <span className="field-icon" aria-hidden="true">{icon}</span>}
+        {icon && <Icon name={icon} className="field-icon" />}
         {label}
       </div>
       <div className="segmented">
@@ -38,7 +39,7 @@ export function CheckChips({ constraints, t, compact }) {
         const ok = val === 'Pass'
         return (
           <li key={key} className={ok ? 'check pass' : 'check fail'}>
-            <span aria-hidden="true">{CHECK_ICON[key]}</span>
+            <Icon name={CHECK_ICON[key]} size={15} />
             <span>{t.checks[key] || key}</span>
             <span className="check-mark" aria-hidden="true">{ok ? '✓' : '✕'}</span>
             <span className="sr-only">{ok ? t.pass : t.fail}</span>
@@ -49,27 +50,12 @@ export function CheckChips({ constraints, t, compact }) {
   )
 }
 
-export function ScoreRing({ value, label }) {
-  const r = 44
-  const c = 2 * Math.PI * r
+export function Score({ value, label }) {
   const pct = Math.max(0, Math.min(100, Number(value) || 0))
-  const shown = useCountUp(pct)
-  const [armed, setArmed] = useState(false)
-  useEffect(() => {
-    const id = requestAnimationFrame(() => setArmed(true))
-    return () => cancelAnimationFrame(id)
-  }, [])
   return (
-    <div className="ring" role="img" aria-label={`${label}: ${pct} / 100`}>
-      <svg viewBox="0 0 104 104" width="132" height="132">
-        <circle cx="52" cy="52" r={r} className="ring-track" />
-        <circle
-          cx="52" cy="52" r={r} className="ring-fill"
-          strokeDasharray={c} strokeDashoffset={armed ? c * (1 - pct / 100) : c}
-          transform="rotate(-90 52 52)"
-        />
-      </svg>
-      <div className="ring-text"><strong>{shown.toFixed(1)}</strong><small>/ 100</small></div>
+    <div className="score" role="img" aria-label={`${label}: ${pct} / 100`}>
+      <strong>{pct.toFixed(1)}</strong>
+      <small>/ 100</small>
     </div>
   )
 }
@@ -128,7 +114,7 @@ export function StrategyCard({ item, t, lang, maxProfit, defaultOpen, index = 0 
     <article className={`strategy ${item.feasible ? '' : 'is-infeasible'}`} style={{ '--i': index }}>
       <button type="button" className="strategy-head" aria-expanded={open} onClick={() => setOpen((o) => !o)}>
         <span className="rank">{item.rank}</span>
-        <span className="crop-emoji" aria-hidden="true">{CROP_EMOJI[item.crop] || '🌱'}</span>
+        <CropThumb crop={item.crop} label={cropName(item.crop, lang)} size={40} />
         <span className="strategy-name">
           <strong>{cropName(item.crop, lang)}</strong>
           <small>{item.strategy}</small>

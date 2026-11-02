@@ -1,91 +1,66 @@
-import { CHECK_ICON } from '../lib.js'
-import { HeroArt, Reveal } from '../components/Art.jsx'
+import { CHECK_ICON, IMAGES } from '../lib.js'
+import Icon from '../components/Icon.jsx'
+import { OptionalPhoto } from '../components/Photo.jsx'
 import Wizard from '../components/Wizard.jsx'
-
-const TRUST_ICON = ['🧭', '🔍', '📊', '🔒']
 
 export default function Home({ t, wizardProps }) {
   const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  const startNow = () => {
+    scrollTo('plan')
+    setTimeout(() => document.querySelector('#plan input, #plan h2')?.focus({ preventScroll: true }), 350)
+  }
 
   return (
     <>
-      <section className="hero2" aria-labelledby="hero-title">
-        <div className="hero2-copy">
-          <p className="hero-kicker" style={{ '--n': 0 }}>{t.heroKicker}</p>
-          <h1 id="hero-title" style={{ '--n': 1 }}>{t.heroTitle}</h1>
-          <p className="hero-text" style={{ '--n': 2 }}>{t.heroText}</p>
-          <div className="hero-cta" style={{ '--n': 3 }}>
-            <button type="button" className="primary cta" onClick={() => scrollTo('plan')}>{t.ctaStart} <span aria-hidden="true">→</span></button>
-            <button type="button" className="ghost" onClick={() => scrollTo('how')}>{t.ctaHow}</button>
-          </div>
-          <ul className="trust-chips" style={{ '--n': 4 }}>
-            {t.trustChips.map((c) => <li key={c}><span aria-hidden="true">✓</span> {c}</li>)}
-          </ul>
+      <div className="home-top">
+        <div className="home-left">
+          <section className="hero" aria-labelledby="hero-title">
+            <p className="hero-kicker">{t.heroKicker}</p>
+            <h1 id="hero-title">{t.heroTitle}</h1>
+            <p className="hero-text">{t.heroText}</p>
+            <div className="hero-cta">
+              <button type="button" className="primary cta" onClick={startNow}>{t.ctaStart}</button>
+              <button type="button" className="link-btn" onClick={() => scrollTo('how')}>{t.ctaHow}</button>
+            </div>
+            <p className="hero-note">{t.heroNote}</p>
+          </section>
+          {/* Real photo: add frontend/public/images/hero.jpg. If it is missing this simply disappears. */}
+          <OptionalPhoto src={IMAGES.hero} alt={t.photoAlt} className="hero-img" />
         </div>
 
-        <div className="hero2-visual" aria-hidden="true">
-          <HeroArt />
-          <span className="float-badge fb-1">💰 {t.checks.budget} ✓</span>
-          <span className="float-badge fb-2">💧 {t.checks.water} ✓</span>
-          <span className="float-badge fb-3">🚜 {t.checks.machinery} ✓</span>
-        </div>
-      </section>
-
-      <section className="plan-section" id="plan" aria-label={t.formTitle}>
-        <Reveal className="plan-wrap">
+        <section className="plan-section" id="plan" aria-label={t.formTitle}>
           <Wizard t={t} {...wizardProps} />
-        </Reveal>
-      </section>
+        </section>
+      </div>
 
-      <section className="section" id="how" aria-labelledby="how-title">
-        <Reveal as="h2" id="how-title" className="section-title">{t.howTitle}</Reveal>
-        <ol className="how-grid">
+      <section className="info" id="how" aria-labelledby="how-title">
+        <h2 id="how-title">{t.howTitle}</h2>
+        <ol className="how-list">
           {t.howSteps.map(([title, text], i) => (
-            <Reveal as="li" key={title} className="how-card" delay={i * 110}>
+            <li key={title}>
               <span className="how-num">{i + 1}</span>
-              <h3>{title}</h3>
-              <p>{text}</p>
-            </Reveal>
+              <div><h3>{title}</h3><p>{text}</p></div>
+            </li>
           ))}
         </ol>
       </section>
 
-      <section className="section" aria-labelledby="check-title">
-        <Reveal as="h2" id="check-title" className="section-title">{t.checkTitle}</Reveal>
-        <ul className="check-grid">
-          {Object.entries(t.checkItems).map(([key, [name, text]], i) => (
-            <Reveal as="li" key={key} className="check-tile" delay={i * 90}>
-              <span className="check-tile-icon" aria-hidden="true">{CHECK_ICON[key]}</span>
-              <strong>{name}</strong>
-              <span>{text}</span>
-            </Reveal>
+      <section className="info" aria-labelledby="check-title">
+        <h2 id="check-title">{t.checkTitle}</h2>
+        <ul className="check-list">
+          {Object.entries(t.checkItems).map(([key, [name, text]]) => (
+            <li key={key}>
+              <Icon name={CHECK_ICON[key]} size={22} />
+              <div><strong>{name}</strong><span>{text}</span></div>
+            </li>
           ))}
         </ul>
       </section>
 
-      <section className="section trust" aria-labelledby="trust-title">
-        <Reveal as="h2" id="trust-title" className="section-title">{t.trustTitle}</Reveal>
-        <ul className="trust-grid">
-          {t.trustItems.map(([title, text], i) => (
-            <Reveal as="li" key={title} className="trust-card" delay={i * 90}>
-              <span className="trust-icon" aria-hidden="true">{TRUST_ICON[i]}</span>
-              <div>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </div>
-            </Reveal>
-          ))}
-        </ul>
-        <Reveal as="p" className="coverage">{t.coverage}</Reveal>
+      <section className="info about" aria-labelledby="about-title">
+        <h2 id="about-title">{t.aboutTitle}</h2>
+        <p>{t.aboutText}</p>
       </section>
-
-      <Reveal as="section" className="cta-band">
-        <div>
-          <h2>{t.ctaBandTitle}</h2>
-          <p>{t.ctaBandText}</p>
-        </div>
-        <button type="button" className="primary cta light" onClick={() => scrollTo('plan')}>{t.ctaStart} <span aria-hidden="true">→</span></button>
-      </Reveal>
     </>
   )
 }

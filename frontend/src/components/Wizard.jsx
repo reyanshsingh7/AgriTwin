@@ -2,9 +2,8 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import {
   BUDGET_STEPS, FIELD_ICON, LEVEL_OPTIONS, MACHINERY_OPTIONS, PRESETS, compactInr, inr,
 } from '../lib.js'
+import Icon from './Icon.jsx'
 import { Segmented } from './Parts.jsx'
-
-const RISK_ICON = { Low: '🛡️', Medium: '⚖️', High: '🚀' }
 
 /* Three short steps instead of one long form: land & budget -> resources -> risk + review. */
 export default function Wizard({ t, form, setForm, step, setStep, onSubmit, onReset, loading, error }) {
@@ -98,7 +97,7 @@ export default function Wizard({ t, form, setForm, step, setStep, onSubmit, onRe
             </div>
 
             <div className="field">
-              <label className="field-label" htmlFor="land_area_acres"><span className="field-icon" aria-hidden="true">🌍</span>{t.land}</label>
+              <label className="field-label" htmlFor="land_area_acres"><Icon name={FIELD_ICON.land} className="field-icon" />{t.land}</label>
               <div className={fieldErrors.land_area_acres ? 'input-wrap invalid' : 'input-wrap'}>
                 <button type="button" className="step-btn" aria-label="−" onClick={() => setField('land_area_acres', Math.max(0.5, Number(form.land_area_acres || 0) - 0.5))}>−</button>
                 <input id="land_area_acres" name="land_area_acres" type="number" inputMode="decimal" min="0.01" step="0.5"
@@ -111,7 +110,7 @@ export default function Wizard({ t, form, setForm, step, setStep, onSubmit, onRe
             </div>
 
             <div className="field">
-              <label className="field-label" htmlFor="budget"><span className="field-icon" aria-hidden="true">💰</span>{t.budget}</label>
+              <label className="field-label" htmlFor="budget"><Icon name={FIELD_ICON.budget} className="field-icon" />{t.budget}</label>
               <div className={fieldErrors.budget ? 'input-wrap invalid' : 'input-wrap'}>
                 <span className="unit prefix">₹</span>
                 <input id="budget" name="budget" type="number" inputMode="numeric" min="0" step="1000"
@@ -148,7 +147,7 @@ export default function Wizard({ t, form, setForm, step, setStep, onSubmit, onRe
         {step === 2 && (
           <>
             <div className="field" role="radiogroup" aria-labelledby="risk-label">
-              <div className="field-label" id="risk-label"><span className="field-icon" aria-hidden="true">{FIELD_ICON.risk}</span>{t.risk}</div>
+              <div className="field-label" id="risk-label"><Icon name={FIELD_ICON.risk} className="field-icon" />{t.risk}</div>
               <div className="risk-cards">
                 {LEVEL_OPTIONS.map((lvl) => (
                   <button
@@ -159,7 +158,7 @@ export default function Wizard({ t, form, setForm, step, setStep, onSubmit, onRe
                     className={form.risk_preference === lvl ? 'risk-card active' : 'risk-card'}
                     onClick={() => setField('risk_preference', lvl)}
                   >
-                    <span className="risk-card-icon" aria-hidden="true">{RISK_ICON[lvl]}</span>
+                    <span className="radio-dot" aria-hidden="true" />
                     <span>
                       <strong>{t.riskCards[lvl][0]}</strong>
                       <small>{t.riskCards[lvl][1]}</small>

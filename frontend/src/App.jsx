@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import './App.css'
 import { T } from './i18n.js'
-import { DEFAULTS, loadSession, requestAnalysis, saveSession } from './lib.js'
+import { DEFAULTS, IMAGES, loadSession, requestAnalysis, saveSession } from './lib.js'
 import Analyzing from './components/Analyzing.jsx'
+import { LogoMark } from './components/Photo.jsx'
 import Home from './pages/Home.jsx'
 import Results from './pages/Results.jsx'
 
@@ -91,7 +92,7 @@ export default function App() {
       <header className="topbar">
         <div className="topbar-inner">
           <button type="button" className="brand" onClick={goHome} aria-label="AgriTwin">
-            <span className="brand-mark" aria-hidden="true">🌱</span>
+            <LogoMark size={38} />
             <span className="brand-text"><strong>AgriTwin</strong><span>{t.tagline}</span></span>
           </button>
           <button type="button" className="lang-btn" onClick={toggleLang} lang={lang === 'en' ? 'hi' : 'en'}>{t.lang}</button>
@@ -108,8 +109,9 @@ export default function App() {
 
       <footer className="footer">
         <p>{t.footerNote}</p>
-        <p>{t.footerBuilt}</p>
-        <p className="footer-team">{t.footerTeam}</p>
+        <p className="footer-line">
+          <span>{t.footerBuilt}</span>
+        </p>
       </footer>
 
       {loading && <Analyzing t={t} />}

@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
-import { CHECK_ICON, CROP_EMOJI, compactInr, inr, roiOf } from '../lib.js'
-import { Reveal } from '../components/Art.jsx'
-import { CheckChips, RiskMeter, ScoreRing, StrategyCard, cropName } from '../components/Parts.jsx'
+import { CHECK_ICON, compactInr, inr, roiOf } from '../lib.js'
+import Icon from '../components/Icon.jsx'
+import { CropThumb } from '../components/Photo.jsx'
+import { CheckChips, RiskMeter, Score, StrategyCard, cropName } from '../components/Parts.jsx'
 
 const uniq = (arr) => [...new Set(arr.filter(Boolean))]
 
@@ -20,7 +21,6 @@ function BestPanel({ data, t, lang, best, others, onCompare }) {
     return (
       <div className="panel">
         <div className="none-card">
-          <span className="none-icon" aria-hidden="true">🌧️</span>
           <div>
             <h2>{t.noneTitle}</h2>
             <p>{data.message}</p>
@@ -30,10 +30,10 @@ function BestPanel({ data, t, lang, best, others, onCompare }) {
         <h3 className="panel-sub">{t.helpTitle}</h3>
         <div className="help-grid">
           {(data.best_alternatives || []).map((alt) => (
-            <Reveal key={alt.crop} className="help-card">
-              <h4><span aria-hidden="true">{CROP_EMOJI[alt.crop] || '🌱'}</span> {cropName(alt.crop, lang)}</h4>
+            <div key={alt.crop} className="help-card">
+              <h4>{cropName(alt.crop, lang)}</h4>
               <ul>{(alt.required_changes || []).map((c) => <li key={c}>{c}</li>)}</ul>
-            </Reveal>
+            </div>
           ))}
         </div>
         <button type="button" className="ghost wide" onClick={onCompare}>{t.seeAll} →</button>
@@ -54,12 +54,12 @@ function BestPanel({ data, t, lang, best, others, onCompare }) {
       <div className="winner">
         <div className="winner-main">
           <p className="eyebrow light">{t.best}</p>
-          <h2><span aria-hidden="true">{CROP_EMOJI[best.crop] || '🌱'}</span> {cropName(best.crop, lang)}</h2>
+          <h2>{cropName(best.crop, lang)}</h2>
           <p className="winner-sub">{best.strategy}</p>
           <CheckChips constraints={best.constraints} t={t} compact />
         </div>
         <div className="winner-score">
-          <ScoreRing value={data.overall_score} label={t.score} />
+          <Score value={data.overall_score} label={t.score} />
           <span>{t.score}</span>
         </div>
         <dl className="winner-stats">
@@ -83,7 +83,7 @@ function BestPanel({ data, t, lang, best, others, onCompare }) {
         <div className="others">
           {others.map((s, i) => (
             <button key={s.crop} type="button" className="other-card" style={{ '--i': i }} onClick={onCompare}>
-              <span className="other-emoji" aria-hidden="true">{CROP_EMOJI[s.crop] || '🌱'}</span>
+              <CropThumb crop={s.crop} label={cropName(s.crop, lang)} size={40} />
               <span className="other-main">
                 <strong>{cropName(s.crop, lang)}</strong>
                 <small>{t.score}: {s.score}</small>
@@ -131,7 +131,7 @@ function HowPanel({ data, t }) {
       <ul className="limit-list">
         {Object.entries(t.checkItems).map(([key, [name, text]]) => (
           <li key={key}>
-            <span className="check-tile-icon" aria-hidden="true">{CHECK_ICON[key]}</span>
+            <Icon name={CHECK_ICON[key]} size={22} />
             <div><strong>{name}</strong><span>{text}</span></div>
           </li>
         ))}

@@ -5,39 +5,32 @@ export const T = {
     lang: 'हिन्दी',
     skip: 'Skip to main content',
 
-    /* hero */
-    heroKicker: 'Free crop planning for your farm',
-    heroTitle: 'Pick the crop your farm can truly support.',
+    /* home */
+    heroKicker: 'Crop planning tool',
+    heroTitle: 'Which crop should you grow this season?',
     heroText:
-      'Tell us your land, budget, water, workers and machinery. We check what is actually possible first, then show the crops that fit — with profit, risk and the reasons.',
-    ctaStart: 'Start planning',
+      'Enter your land, budget, water, workers and machinery. The tool first checks what you can actually afford and manage, then lists the crops that fit, with expected profit and risk.',
+    ctaStart: 'Start',
     ctaHow: 'How it works',
-    trustChips: ['No sign-up', 'Takes about a minute', 'Hindi & English', 'Every number explained'],
-    coverage: 'Covers 6 crops today: Wheat, Rice, Maize, Mustard, Sugarcane and Cotton.',
+    heroNote: 'Free. No sign-up. Takes about a minute.',
+    photoAlt: 'A farm field',
 
-    /* sections */
-    howTitle: 'Three simple steps',
+    howTitle: 'How it works',
     howSteps: [
-      ['Tell us about your farm', 'Land, budget, water, workers, machinery and how much risk you are comfortable with.'],
-      ['We check what is possible', 'Each crop is tested against your limits. If you cannot afford or manage it, it is not recommended.'],
-      ['Get a clear answer', 'The best crop, expected profit and risk, plus the reasons — and what to change if nothing fits.'],
+      ['Tell us about your farm', 'Land, budget, water, workers, machinery, and how much risk you can take.'],
+      ['We check what is possible', 'Each crop is tested against your limits. A crop you cannot afford or manage is not recommended.'],
+      ['You get the result', 'The best crop, expected profit and risk, the reasons, and what to change if nothing fits.'],
     ],
-    checkTitle: 'What we check before recommending',
+    checkTitle: 'What is checked',
     checkItems: {
       budget: ['Budget', 'Can you pay the full cost for all your acres?'],
       water: ['Water', 'Is there enough water for this crop?'],
       labour: ['Workers', 'Can you get enough workers?'],
       machinery: ['Machinery', 'Do you have the machines it needs?'],
     },
-    trustTitle: 'Why you can trust the result',
-    trustItems: [
-      ['Possible first, profitable second', 'A crop you cannot afford or manage is never the top pick, however profitable it looks.'],
-      ['Shows its working', 'See the score, the profit, the risk and the reason behind every ranking.'],
-      ['Honest about estimates', 'Costs and income are reference estimates, not promises. We say so on every result.'],
-      ['Private by design', 'No sign-up, phone number or location. Your answers are not stored on our server.'],
-    ],
-    ctaBandTitle: 'Ready to plan your season?',
-    ctaBandText: 'It takes about a minute and costs nothing.',
+    aboutTitle: 'About the numbers',
+    aboutText:
+      'Costs and income come from a reference table for 6 crops: Wheat, Rice, Maize, Mustard, Sugarcane and Cotton. They are estimates, not promises, and real results depend on weather, prices and how you farm. Your answers are not saved on our server.',
 
     /* wizard */
     steps: ['Land & budget', 'Resources', 'Risk'],
@@ -92,7 +85,7 @@ export const T = {
       machinery: (v) => `Machinery: ${v}`,
       risk: (v) => `Risk: ${v}`,
     },
-    tabs: { best: 'Best pick', compare: 'Compare crops', how: 'How we decided' },
+    tabs: { best: 'Best pick', compare: 'All crops', how: 'How we decided' },
     best: 'Best fit for your farm',
     score: 'Fit score',
     profit: 'Expected profit',
@@ -139,8 +132,7 @@ export const T = {
     },
 
     footerNote: 'Estimates only — please check with your local agriculture office before big decisions.',
-    footerBuilt: 'Hackathon prototype built by Team AgriTwin for the AI for AgroFoods Hackathon (Stage 1).',
-    footerTeam: 'Reyansh (Team Lead), Anushka, Ayush, Prince, Arnav, Pushkar, Shivansh',
+    footerBuilt: 'Stage 1 prototype · AI for AgroFoods Hackathon',
   },
 
   hi: {
@@ -148,37 +140,31 @@ export const T = {
     lang: 'English',
     skip: 'मुख्य सामग्री पर जाएं',
 
-    heroKicker: 'आपके खेत के लिए मुफ़्त फ़सल योजना',
-    heroTitle: 'वही फ़सल चुनें जो आपका खेत सच में संभाल सके।',
+    heroKicker: 'फ़सल योजना उपकरण',
+    heroTitle: 'इस सीज़न आपको कौन-सी फ़सल उगानी चाहिए?',
     heroText:
-      'अपनी ज़मीन, बजट, पानी, मज़दूर और मशीनें बताइए। हम पहले देखते हैं कि क्या संभव है, फिर वही फ़सलें दिखाते हैं जो फिट बैठती हैं — मुनाफ़े, जोखिम और कारणों के साथ।',
-    ctaStart: 'योजना शुरू करें',
+      'अपनी ज़मीन, बजट, पानी, मज़दूर और मशीनें बताइए। यह उपकरण पहले देखता है कि आप क्या खरीद और संभाल सकते हैं, फिर वही फ़सलें दिखाता है जो फिट बैठती हैं — अनुमानित मुनाफ़े और जोखिम के साथ।',
+    ctaStart: 'शुरू करें',
     ctaHow: 'यह कैसे काम करता है',
-    trustChips: ['साइन-अप नहीं', 'करीब एक मिनट', 'हिन्दी और English', 'हर आंकड़ा समझाया'],
-    coverage: 'आज 6 फ़सलें शामिल हैं: गेहूं, चावल, मक्का, सरसों, गन्ना और कपास।',
+    heroNote: 'मुफ़्त। साइन-अप नहीं। करीब एक मिनट लगता है।',
+    photoAlt: 'खेत',
 
-    howTitle: 'तीन आसान कदम',
+    howTitle: 'यह कैसे काम करता है',
     howSteps: [
-      ['अपने खेत के बारे में बताइए', 'ज़मीन, बजट, पानी, मज़दूर, मशीनें और आप कितना जोखिम ले सकते हैं।'],
-      ['हम जांचते हैं क्या संभव है', 'हर फ़सल को आपकी सीमाओं पर परखा जाता है। जो आप खरीद या संभाल न सकें, वह नहीं सुझाई जाती।'],
-      ['साफ़ जवाब पाइए', 'सबसे अच्छी फ़सल, अनुमानित मुनाफ़ा और जोखिम, कारणों के साथ — और अगर कुछ फिट न हो तो क्या बदलें।'],
+      ['अपने खेत के बारे में बताइए', 'ज़मीन, बजट, पानी, मज़दूर, मशीनें, और आप कितना जोखिम ले सकते हैं।'],
+      ['हम जांचते हैं क्या संभव है', 'हर फ़सल को आपकी सीमाओं पर परखा जाता है। जो फ़सल आप खरीद या संभाल न सकें, वह नहीं सुझाई जाती।'],
+      ['आपको नतीजा मिलता है', 'सबसे अच्छी फ़सल, अनुमानित मुनाफ़ा और जोखिम, कारण, और अगर कुछ फिट न हो तो क्या बदलें।'],
     ],
-    checkTitle: 'सुझाव से पहले हम क्या जांचते हैं',
+    checkTitle: 'क्या जांचा जाता है',
     checkItems: {
       budget: ['बजट', 'क्या आप सारे एकड़ की पूरी लागत उठा सकते हैं?'],
       water: ['पानी', 'क्या इस फ़सल के लिए पानी काफ़ी है?'],
       labour: ['मज़दूर', 'क्या पर्याप्त मज़दूर मिल सकेंगे?'],
       machinery: ['मशीन', 'क्या इसके लिए ज़रूरी मशीनें हैं?'],
     },
-    trustTitle: 'नतीजे पर भरोसा क्यों करें',
-    trustItems: [
-      ['पहले संभव, फिर मुनाफ़ा', 'जो फ़सल आप खरीद या संभाल न सकें, वह कितनी भी मुनाफ़े वाली दिखे, पहली पसंद नहीं बनती।'],
-      ['हिसाब दिखाता है', 'हर रैंकिंग के पीछे स्कोर, मुनाफ़ा, जोखिम और कारण देखिए।'],
-      ['अनुमानों के बारे में ईमानदार', 'लागत और आमदनी संदर्भ अनुमान हैं, वादे नहीं। हम हर नतीजे पर यह बताते हैं।'],
-      ['निजता का ध्यान', 'न साइन-अप, न फ़ोन नंबर, न लोकेशन। आपके जवाब हमारे सर्वर पर सेव नहीं होते।'],
-    ],
-    ctaBandTitle: 'अपना सीज़न तय करने के लिए तैयार?',
-    ctaBandText: 'इसमें करीब एक मिनट लगता है और कोई पैसा नहीं लगता।',
+    aboutTitle: 'आंकड़ों के बारे में',
+    aboutText:
+      'लागत और आमदनी 6 फ़सलों की एक संदर्भ तालिका से ली गई है: गेहूं, चावल, मक्का, सरसों, गन्ना और कपास। ये अनुमान हैं, वादे नहीं; असली नतीजे मौसम, भाव और खेती के तरीक़े पर निर्भर करते हैं। आपके जवाब हमारे सर्वर पर सेव नहीं होते।',
 
     steps: ['ज़मीन और बजट', 'संसाधन', 'जोखिम'],
     stepOf: (n, total) => `चरण ${n} / ${total}`,
@@ -230,7 +216,7 @@ export const T = {
       machinery: (v) => `मशीन: ${v}`,
       risk: (v) => `जोखिम: ${v}`,
     },
-    tabs: { best: 'सबसे अच्छी फ़सल', compare: 'फ़सलों की तुलना', how: 'हमने कैसे तय किया' },
+    tabs: { best: 'सबसे अच्छी फ़सल', compare: 'सभी फ़सलें', how: 'हमने कैसे तय किया' },
     best: 'आपके खेत के लिए सबसे उपयुक्त',
     score: 'उपयुक्तता स्कोर',
     profit: 'अनुमानित मुनाफ़ा',
@@ -276,8 +262,7 @@ export const T = {
     },
 
     footerNote: 'केवल अनुमान — बड़े फ़ैसलों से पहले अपने स्थानीय कृषि कार्यालय से सलाह लें।',
-    footerBuilt: 'AI for AgroFoods Hackathon (चरण 1) के लिए टीम AgriTwin द्वारा बनाया गया हैकाथॉन प्रोटोटाइप।',
-    footerTeam: 'Reyansh (टीम लीड), Anushka, Ayush, Prince, Arnav, Pushkar, Shivansh',
+    footerBuilt: 'चरण 1 प्रोटोटाइप · AI for AgroFoods Hackathon',
   },
 }
 

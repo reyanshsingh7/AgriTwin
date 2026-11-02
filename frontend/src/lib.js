@@ -19,9 +19,16 @@ export const LEVEL_OPTIONS = ['Low', 'Medium', 'High']
 export const MACHINERY_OPTIONS = ['None', 'Limited', 'Available']
 export const BUDGET_STEPS = [25000, 50000, 100000, 250000]
 
-export const CROP_EMOJI = { Wheat: '🌾', Rice: '🍚', Maize: '🌽', Mustard: '🌼', Sugarcane: '🎋', Cotton: '☁️' }
-export const CHECK_ICON = { budget: '💰', water: '💧', labour: '🧑‍🌾', machinery: '🚜' }
-export const FIELD_ICON = { water: '💧', labour: '🧑‍🌾', machinery: '🚜', risk: '⚖️' }
+/* Icon names used by components/Icon.jsx */
+export const FIELD_ICON = { land: 'land', budget: 'rupee', water: 'water', labour: 'people', machinery: 'cog', risk: 'scale' }
+export const CHECK_ICON = { budget: 'rupee', water: 'water', labour: 'people', machinery: 'cog' }
+
+/* Optional real photos: drop files into frontend/public/images/ (see the README there).
+   Missing files are handled gracefully, nothing breaks if a photo is absent. */
+export const IMAGES = {
+  hero: '/images/hero.jpg',
+  crop: (name) => `/images/crops/${String(name).toLowerCase()}.jpg`,
+}
 
 export const inr = (v) => (v == null ? '—' : `₹${Math.round(Number(v)).toLocaleString('en-IN')}`)
 
